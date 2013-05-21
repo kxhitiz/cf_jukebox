@@ -26,6 +26,9 @@ songs.unshift(d)
 d
 end
 
+def shuffle
+songs.sample(1).first
+end
 end
 
 jb=Jukebox.new(["t1", "t2"])
