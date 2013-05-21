@@ -1,4 +1,8 @@
 class JukeBox
+	# add new item to the playlist or view the current playlist
+	attr_accessor :playlist
+
+	# who knows other's taste, my friend's playlist is extremely long
 	def initialize(*list)
 		if !list
 			@playlist = ['song1', 'song2', 'song3', 'song4', 'song5']
