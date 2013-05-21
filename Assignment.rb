@@ -35,6 +35,11 @@ class JukeBox
 	def display
 		puts "Current Track: #@@currentSong"
 	end
+	
+	def RandPlay
+		@@currentSongNo = rand(@@songsList.length)
+		@@currentSong = @@songsList[@@currentSongNo]
+	end
 
 end
 
