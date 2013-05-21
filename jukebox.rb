@@ -1,6 +1,10 @@
 class JukeBox
-	def initialize
-		@playlist = ['song1', 'song2', 'song3', 'song4', 'song5']
+	def initialize(*list)
+		if !list
+			@playlist = ['song1', 'song2', 'song3', 'song4', 'song5']
+		else
+			@playlist = list
+		end
 		@current_index = 0
 	end
 
