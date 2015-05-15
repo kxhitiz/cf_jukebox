@@ -1,5 +1,5 @@
 #!/usr/bin/ruby
-class JukeBox
+class NewJukeBox
 	@@songsList
 	@@currentSongNo
 	@@currentSong
@@ -57,3 +57,36 @@ r = JukeBox.new("highway to hell", "fairyTail", "Naruto", "Cloud", "Bleach")
 #r.nextSong
 #r.nextSong
 #r.prevSong*/
+#================================================Next Version================================================#
+class JukeBox
+  attr_accessor :current_play, :songs
+
+  def initialize(*songs)
+    @songs = songs
+    @current_play = 0
+  end
+
+  def add_song(song)
+    songs << song
+  end
+
+  def play
+    @songs.first
+  end
+
+  def next
+    (@current_play += 1) > songs.length ? songs.first : songs[current_play]
+  end
+
+  def prev
+    current_play -= 1 < 0 ? songs.last : songs[current_play]
+  end
+
+  def suffle
+    songs.sample
+  end
+
+  def self.currentPlaying
+    songs[current_index]
+  end
+end
