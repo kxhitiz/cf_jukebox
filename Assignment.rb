@@ -75,18 +75,29 @@ class NewJukeBox
   end
 
   def next
-    (@current_play += 1) > songs.length ? songs.first : songs[current_play]
+    @current_play = 0 if (@current_play += 1) >= songs.length  
+    display
+  end
+
+  def display
+    songs[current_play]
   end
 
   def prev
-    current_play -= 1 < 0 ? songs.last : songs[current_play]
+    @current_play = songs.length - 1 if (@current_play -= 1) < 0
+    display
   end
 
   def suffle
-    songs.sample
+    @current_play = get_random_index
+    songs[current_play]
+  end
+
+  def get_random_index
+    random_song_index = ((0..(songs.length - 1)).to_a - [current_play]).sample
   end
 
   def self.currentPlaying
-    songs[current_index]
+    songs[current_play]
   end
 end
